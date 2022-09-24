@@ -1,0 +1,18 @@
+
+<p>Total: ${{total}} </p>
+
+
+<div class="row g-4  row-cols-lg-5 row-cols-2 row-cols-md-3 justify-content-around ">
+      
+          
+    <app-product class=" d-flex align-items-stretch justify-content-center card-product card--hover" [product]="product" *ngFor="let product of products" (addProduct)="onAddToShoppingCart($event)"></app-product>
+      
+    
+    
+</div>
+
+   
+
+            
+
+
