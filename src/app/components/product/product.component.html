@@ -1,6 +1,6 @@
 <div class="card text-center card--tamaño card--hover ">
 
-    <app-img class="img-contenedor mt-3" [img]="product.image"></app-img>
+    <app-img class="img-contenedor mt-3" *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
 
 
     <div class="card-body">
