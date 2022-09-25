@@ -14,7 +14,20 @@ export class ProductsComponent implements OnInit {
   myShoppingCart: Product[] = [];
   total = 0;
 
-  products: Product[] = [ ];
+  products: Product[] = [];
+
+  productChosen: Product = {
+    id: '',
+    price: 0,
+    images: [],
+    title: '',
+    category: {
+      id: '',
+      name: '',
+    },
+    description: '',
+  }
+
 
 
   constructor(
@@ -24,14 +37,27 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productServices.getAllProducts()
-    .subscribe(data => {
-      this.products = data;
-    })
+      .subscribe(data => {
+        this.products = data;
+      })
   }
 
-  onAddToShoppingCart(product: Product){
-    this.storeService.addProduct(product )
+  onAddToShoppingCart(product: Product) {
+    this.storeService.addProduct(product)
     this.total = this.storeService.getTotal();
   }
+
+
+
+  onShowDetail(id: string) {
+    this.productServices.getProduct(id)
+      .subscribe(data => {
+        /* this.toggleProductDetail(); */
+        this.productChosen = data;
+
+      })
+
+  }
+
 
 }
