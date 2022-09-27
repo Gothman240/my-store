@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
-import { ProductsService } from 'src/app/services/products.service';
-import { StoreService } from 'src/app/services/store.service';
+import { Product } from '../../models/product.model';
+import { ProductsService } from '../../services/products.service';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-products',
@@ -32,11 +32,11 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private storeService: StoreService,
-    private productServices: ProductsService,
+    private productsServices: ProductsService,
   ) { this.myShoppingCart = this.storeService.getshoppingCart() }
 
   ngOnInit(): void {
-    this.productServices.getAllProducts()
+    this.productsServices.getAllProducts()
       .subscribe(data => {
         this.products = data;
       })
@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
 
 
   onShowDetail(id: string) {
-    this.productServices.getProduct(id)
+    this.productsServices.getProduct(id)
       .subscribe(data => {
         /* this.toggleProductDetail(); */
         this.productChosen = data;

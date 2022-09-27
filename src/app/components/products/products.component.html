@@ -1,13 +1,15 @@
 <p>Total: ${{total}} </p>
 
 
-<div class="row g-4  row-cols-lg-5 row-cols-2 row-cols-md-3 justify-content-around ">
+<div class="row g-2 row-cols-lg-5 row-cols-2 row-cols-md-3 justify-content-around ">
 
 
 
     <app-product class=" d-flex align-items-stretch justify-content-center card-product card--hover" [product]="product"
         *ngFor="let product of products" (addProduct)="onAddToShoppingCart($event)"
-        (showProduct)="onShowDetail($event)"></app-product>
+        (showProduct)="onShowDetail($event)">
+
+    </app-product>
 
 
 
@@ -16,59 +18,85 @@
 <!-- Canvas  producto -->
 
 
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">{{productChosen.title}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-
-        <div class="row justify-content-center align-items-center g-2">
-            <div class="col">
-
-                <!-- carousel -->
-
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div *ngFor="let img of productChosen.images" class="carousel-item active">
-                            <img [src]="img" class="d-block w-100" alt="...">
-                        </div>
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-                <!-- descripcion -->
-
-
-
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+  
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">
+      {{ productChosen.title }}
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col-12">
+        <!-- carousel -->
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li
+              data-bs-target="#carouselId"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="First slide"
+            ></li>
+            <li
+              data-bs-target="#carouselId"
+              data-bs-slide-to="1"
+              aria-label="Second slide"
+            ></li>
+            <li
+              data-bs-target="#carouselId"
+              data-bs-slide-to="2"
+              aria-label="Third slide"
+            ></li>
+          </ol>
+          <!-- img -->
+          <div class="carousel-inner" role="listbox">
+            <div *ngFor="let img of productChosen.images" class="carousel-item active">
+              <img 
+                [src]="img"
+                class="w-100 h-50 d-block"
+                alt="First slide"
+              />
+              
             </div>
-            <div class="col">Column</div>
-
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselId"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselId"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            
+          </button>
         </div>
-
-
-
-
-
-
+        <!--  -->
+        <div class="col">
+          <p>{{ productChosen.description }}</p>
+        </div>
+        
+        
+      </div>
     </div>
+  </div>
 </div>
