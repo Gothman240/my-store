@@ -11,3 +11,14 @@ export interface Product {
     description: string;
     category: Category;
 }
+
+/* extiende de Product, menos el id y categoría, pero se reemplaza category por number */
+
+export interface CreateProductDTO extends Omit<Product, 'id' | 'category' > {
+    categoryId: number;
+}
+
+/*los campos son opcionales con Partial*/ 
+export interface UpdateProductDTO extends Partial <CreateProductDTO>{
+   
+}

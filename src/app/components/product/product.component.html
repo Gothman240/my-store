@@ -1,6 +1,6 @@
 <div class="card text-center card--tamaño card--hover ">
 
-    <app-img class="img-contenedor mt-3" *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
+    <app-img class="img-fluid mt-3" *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
 
 
     <div class="card-body">
@@ -8,7 +8,7 @@
         
         
     </div>
-    <div class="pb-3 d-flex align-items-end justify-content-around">
+    <div class="pb-3  align-items-end justify-content-around">
         <h4 class="card-text text-success"> {{product.price | currency: 'USD' }} </h4>
         <button (click)="onAddToCart()" type="button" class="btn btn-outline-success"> Add </button>
 
@@ -16,7 +16,8 @@
     <!-- offcanvas boton -->
 
     
-    <button (click)="onShowDetail" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+    <button (click)="onShowDetail()" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" href="#offcanvasRight" aria-controls="offcanvasRight">detalle</button>
 
 
 </div>
+
