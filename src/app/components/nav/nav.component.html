@@ -7,35 +7,27 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link disabled">Disabled</a>
+
+                <a class="nav-link active" routerLinkActive="linkActive" aria-current="page" routerLink="home">Home</a>
+                <a class="nav-link" routerLinkActive="linkActive" *ngFor="let item of categories" [routerLink]="['/category', item.id]">{{item.name}}</a>
+                
 
             </div>
 
             <div class="d-flex my-2 my-lg-0">
 
-                <ul class="navbar-nav position-relative pe-3">
+                <div class="navbar-nav position-relative pe-3">
 
-                    <li class=" dropdown  nav-item ">
-                        <a class="nav-link  dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Cuenta@correo
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    
+                    <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button>
+                    <ng-template #elseBlock>{{ profile?.email }}</ng-template>
 
-                    <a class="nav-link position-relative " href="#">
+                    <div class="nav-link position-relative " href="#">
                         <img src="../../../assets/svg/icon_shopping_cart.svg" alt="">
                         <span class="position-absolute top-0 star-50 badge rounded-pill bg-success ">{{counter}}</span>
-                    </a>
+                    </div>
 
-                </ul>
+                </div>
             </div>
         </div>
     </div>

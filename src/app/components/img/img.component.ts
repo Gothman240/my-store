@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ImgComponent implements OnInit {
   
   @Input() img: string = '';
-  imgDefault = 'https://dominionmartialarts.com/wp-content/uploads/2017/04/default-image.jpg';
+  imgDefault = 'https://narayanapearls.in/assets/images/not-found.jpg';
   counter = 0; 
 
   constructor() { }

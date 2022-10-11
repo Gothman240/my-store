@@ -9,8 +9,8 @@
     *ngFor="let product of products" (addProduct)="onAddToShoppingCart($event)" (showProduct)="onShowDetail($event)">
 
   </app-product>
-
-  <button (click)="loadMore()" class="btn btn-outline-info">Load More</button>
+  
+   <button (click)="onLoadMore()" class="btn btn-outline-info">Load More</button> 
 
 </div>
 
@@ -37,7 +37,7 @@
           </ol>
           <!-- img -->
           <div class="carousel-inner" role="listbox">
-            <div *ngFor="let img of productChosen.images" class="carousel-item active">
+            <div *ngFor="let img of productChosen.images" class="carousel-item ">
               <img [src]="img" class="w-100 h-50 d-block" alt="First slide" />
 
             </div>
@@ -54,7 +54,7 @@
         <!--  -->
         <div class="col-12">
           <p>{{ productChosen.description }}</p>
-          <div class="d-grid gap-2">
+          <div class=" gap-2">
             <button (click)="updateProduct()" type="button"  class="btn btn-primary">update</button>
             <button (click)="deleteProduct()" type="button"  class="btn btn-danger">delete</button>
 
@@ -63,6 +63,7 @@
 
 
       </div>
+      
     </div>
   </div>
 </div>
